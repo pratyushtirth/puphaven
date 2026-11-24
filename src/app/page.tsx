@@ -1,4 +1,7 @@
 
+"use client";
+
+import { useState } from "react";
 import Header from "../components/Header";
 
 const WHATSAPP_URL = "https://wa.me/918252909863";
@@ -6,33 +9,27 @@ const WHATSAPP_URL = "https://wa.me/918252909863";
 const heroPuppies = [
   {
     name: "Maltipoo",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900",
   },
   {
     name: "Golden Retriever",
-    image:
-      "https://images.unsplash.com/photo-1552053831-71594a27632d?w=900",
+    image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=900",
   },
   {
     name: "French Bulldog",
-    image:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900",
+    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900",
   },
   {
     name: "Cavapoo",
-    image:
-      "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=900",
+    image: "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=900",
   },
   {
     name: "Shih Tzu",
-    image:
-      "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=900",
+    image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=900",
   },
   {
     name: "Puppy",
-    image:
-      "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900",
   },
 ];
 
@@ -40,100 +37,153 @@ const puppies = [
   {
     name: "Maltipoo",
     description: "Girl, 3 months, with video",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700",
     color: "#d99548",
   },
   {
     name: "Pomeranian",
     description: "Girl, 3 months",
-    image:
-      "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700",
+    image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700",
     color: "#b76b4d",
   },
   {
     name: "Copper",
     description: "Cavapoo, boy, 2 months",
-    image:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=700",
+    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=700",
     color: "#d99548",
   },
   {
     name: "Shih Tzu",
     description: "Girl, 2 months",
-    image:
-      "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=700",
+    image: "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=700",
     color: "#bd7058",
   },
   {
     name: "Shih Tzu",
     description: "Boy, 2 months",
-    image:
-      "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=700",
+    image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=700",
     color: "#805039",
   },
 ];
 
 const familyMoments = [
   {
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700",
     caption: "A new best friend for life 🧸❤️",
     rotation: "-rotate-2",
     position: "mt-0",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700",
+    image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700",
     caption: "First cuddles at home 🐾",
     rotation: "rotate-2",
     position: "mt-14",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=700",
+    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=700",
     caption: "Our little bundle of joy ❤️",
     rotation: "-rotate-1",
     position: "mt-5",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=700",
+    image: "https://images.unsplash.com/photo-1551717743-49959800b1f6?w=700",
     caption: "Welcome to the family 🧸",
     rotation: "rotate-2",
     position: "mt-16",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=700",
+    image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=700",
     caption: "Happiness has four paws 🐾",
     rotation: "rotate-1",
     position: "mt-10",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700",
     caption: "The sweetest little companion ❤️",
     rotation: "-rotate-2",
     position: "mt-0",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700",
     caption: "Love at first sight 🐶",
     rotation: "rotate-2",
     position: "mt-14",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700",
+    image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700",
     caption: "Our family is complete ❤️",
     rotation: "-rotate-1",
     position: "mt-6",
   },
 ];
 
+const steps = [
+  {
+    number: "01",
+    icon: "🐶",
+    title: "Choose your puppy",
+    description:
+      "Explore our adorable puppies and find the little companion who feels just right for your family.",
+  },
+  {
+    number: "02",
+    icon: "💬",
+    title: "Let's get acquainted",
+    description:
+      "Contact our team to learn more about your chosen puppy, ask questions and arrange a visit or video call.",
+  },
+  {
+    number: "03",
+    icon: "✈️",
+    title: "Safe journey home",
+    description:
+      "Our team helps coordinate the arrangements and guides you through the delivery or collection process.",
+  },
+  {
+    number: "04",
+    icon: "❤️",
+    title: "Welcome your best friend",
+    description:
+      "Get everything ready, welcome your new family member and start making wonderful memories together.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How can I reserve a puppy?",
+    answer:
+      "Simply contact our team through WhatsApp and tell us which puppy you are interested in. We will guide you through the availability and reservation process.",
+  },
+  {
+    question: "Can I visit the showroom in Dubai?",
+    answer:
+      "Yes! You can contact our team to discuss a showroom visit and arrange a convenient time to meet the puppies.",
+  },
+  {
+    question: "Do you offer international delivery?",
+    answer:
+      "We can help coordinate international puppy delivery. Contact our team to discuss your destination, applicable requirements and travel arrangements.",
+  },
+  {
+    question: "Can I see a puppy before making a decision?",
+    answer:
+      "Please contact us to ask about arranging an in-person meeting or a video call, subject to availability.",
+  },
+  {
+    question: "Will I receive information about my puppy's health?",
+    answer:
+      "Our team can explain the available health records and documentation for the puppy you are interested in. Please discuss the details with us before making a reservation.",
+  },
+  {
+    question: "How do I find out about pricing and payment?",
+    answer:
+      "Pricing and payment arrangements depend on the puppy and the services required. Contact us directly for current details.",
+  },
+];
+
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
     <main className="overflow-hidden bg-[#fff8ed] text-[#32190f]">
       <Header />
@@ -199,9 +249,7 @@ export default function Home() {
             <div
               key={puppy.name}
               className={`relative h-full w-[16.66%] max-w-[280px] shrink-0 overflow-hidden rounded-t-[150px] border-[3px] border-b-0 border-[#32190f] bg-[#f2d9bd] ${
-                index % 2 === 0
-                  ? "h-[72%]"
-                  : "h-[94%]"
+                index % 2 === 0 ? "h-[72%]" : "h-[94%]"
               }`}
             >
               <img
@@ -413,32 +461,165 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section
         id="how-it-works"
-        className="bg-[#ffedca] px-6 py-24 text-center"
+        className="relative overflow-hidden bg-[#ffedca] px-5 py-24 md:px-10 md:py-32"
       >
-        <p
-          className="mb-4 text-xl text-[#a34c20]"
-          style={{ fontFamily: "cursive" }}
-        >
-          your journey starts here
-        </p>
+        <div className="mx-auto max-w-[1450px]">
+          <div className="text-center">
+            <p
+              className="mb-4 text-xl text-[#a34c20] md:text-2xl"
+              style={{ fontFamily: "cursive" }}
+            >
+              your journey starts here
+            </p>
 
-        <h2 className="font-serif text-5xl font-black md:text-7xl">
-          How it works
-        </h2>
+            <h2 className="font-serif text-5xl font-black tracking-tight md:text-7xl lg:text-8xl">
+              How it works
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#684936] md:text-xl">
+              Bringing home your new best friend should feel special and
+              simple. We are here to guide you at every step.
+            </p>
+          </div>
+
+          <div className="relative mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+            {steps.map((step, index) => (
+              <article key={step.number} className="relative text-center">
+                {index !== steps.length - 1 && (
+                  <div className="absolute left-[65%] top-12 hidden h-[2px] w-[75%] border-t-2 border-dashed border-[#c58b53] lg:block" />
+                )}
+
+                <div className="relative z-10 mx-auto flex h-28 w-28 items-center justify-center rounded-full border-[3px] border-[#32190f] bg-[#fff8ed] text-5xl shadow-[5px_6px_0_#d9a66d]">
+                  {step.icon}
+                </div>
+
+                <p className="mt-8 text-sm font-black tracking-[0.25em] text-[#b76b35]">
+                  STEP {step.number}
+                </p>
+
+                <h3 className="mt-3 font-serif text-2xl font-black md:text-3xl">
+                  {step.title}
+                </h3>
+
+                <p className="mx-auto mt-4 max-w-xs text-base leading-7 text-[#684936]">
+                  {step.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-20 text-center">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-[#a94f1c] px-9 py-5 text-lg font-bold text-white shadow-[0_7px_0_#32190f] transition hover:-translate-y-1 hover:shadow-[0_9px_0_#32190f]"
+            >
+              Start your puppy journey →
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-[#fff8ed] px-6 py-24 text-center">
-        <p
-          className="mb-4 text-xl text-[#a34c20]"
-          style={{ fontFamily: "cursive" }}
-        >
-          we are here to help
-        </p>
+      <section
+        id="faq"
+        className="bg-[#fff8ed] px-5 py-24 md:px-10 md:py-32"
+      >
+        <div className="mx-auto max-w-[1100px]">
+          <div className="text-center">
+            <p
+              className="mb-4 text-xl text-[#a34c20] md:text-2xl"
+              style={{ fontFamily: "cursive" }}
+            >
+              we are here to help
+            </p>
 
-        <h2 className="font-serif text-5xl font-black md:text-7xl">
-          Frequently asked questions
-        </h2>
+            <h2 className="font-serif text-5xl font-black tracking-tight md:text-7xl">
+              Frequently asked questions
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#684936] md:text-xl">
+              Everything you need to know before welcoming your new little
+              companion home.
+            </p>
+          </div>
+
+          <div className="mt-16 space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+
+              return (
+                <article
+                  key={faq.question}
+                  className={`overflow-hidden rounded-2xl border-2 border-[#e6c79e] bg-[#fffdf7] transition-shadow duration-300 ${
+                    isOpen ? "shadow-[0_8px_20px_rgba(80,45,20,0.08)]" : ""
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-5 px-6 py-6 text-left md:px-8 md:py-7"
+                  >
+                    <span className="font-serif text-lg font-bold text-[#32190f] md:text-2xl">
+                      {faq.question}
+                    </span>
+
+                    <span
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[#a94f1c] text-xl font-bold text-[#a94f1c] transition-transform duration-300 ${
+                        isOpen ? "rotate-45" : ""
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="border-t border-[#ead8bd] px-6 py-6 text-base leading-8 text-[#684936] md:px-8 md:text-lg">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="mt-16 rounded-3xl bg-[#f5e2c3] px-6 py-10 text-center md:px-10">
+            <p
+              className="text-xl text-[#a34c20] md:text-2xl"
+              style={{ fontFamily: "cursive" }}
+            >
+              still have a question?
+            </p>
+
+            <h3 className="mt-3 font-serif text-3xl font-black md:text-4xl">
+              We would love to hear from you.
+            </h3>
+
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-[#684936] md:text-lg">
+              Our team is happy to help you find out more about our puppies
+              and the process of welcoming one home.
+            </p>
+
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex rounded-full bg-[#a94f1c] px-8 py-4 font-bold text-white shadow-[0_6px_0_#32190f] transition hover:-translate-y-1"
+            >
+              Chat with us on WhatsApp
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* FOOTER */}
